@@ -24,6 +24,25 @@
       Affrontez un ami sur le même appareil : le premier qui aligne trois symboles gagne !
     </p>
 
+    <!-- Choix du mode de jeu -->
+    <section class="setup" aria-label="Options de partie">
+      <div class="setup__group" role="radiogroup" aria-labelledby="mode-label">
+        <span id="mode-label" class="setup__label">Mode de jeu</span>
+        <div class="segmented">
+          <label><input type="radio" name="mode" value="pvp" checked><span>2 joueurs</span></label>
+          <label><input type="radio" name="mode" value="cpu"><span>Contre l'ordinateur</span></label>
+        </div>
+      </div>
+      <div class="setup__group" id="difficulty-group" role="radiogroup" aria-labelledby="diff-label" hidden>
+        <span id="diff-label" class="setup__label">Difficulté</span>
+        <div class="segmented">
+          <label><input type="radio" name="difficulty" value="easy"><span>Facile</span></label>
+          <label><input type="radio" name="difficulty" value="medium" checked><span>Moyen</span></label>
+          <label><input type="radio" name="difficulty" value="hard"><span>Difficile</span></label>
+        </div>
+      </div>
+    </section>
+
     <button id="btn-start" class="btn btn--primary btn--large" type="button">
       Commencer à jouer
     </button>
@@ -37,6 +56,7 @@
         <li>Le premier qui aligne trois symboles identiques (ligne, colonne ou diagonale) gagne.</li>
         <li>Si les neuf cases sont remplies sans alignement, la partie est nulle.</li>
         <li>Une nouvelle partie conserve les scores.</li>
+        <li>Contre l'ordinateur, vous jouez <strong class="txt-x">X</strong> et l'ordinateur joue <strong class="txt-o">O</strong>.</li>
       </ol>
     </section>
   </main>
@@ -45,13 +65,14 @@
   <main id="game" class="screen" aria-labelledby="game-title">
     <header class="game-header">
       <h1 id="game-title" class="title title--small">Morpion <span>Arena</span></h1>
+      <p id="mode-badge" class="mode-badge"></p>
     </header>
 
     <!-- Tableau des scores -->
     <section class="scoreboard" aria-label="Scores">
       <div class="score score--x" id="score-card-x">
         <span class="score__symbol">X</span>
-        <span class="score__label">Joueur X</span>
+        <span class="score__label" id="label-x">Joueur X</span>
         <span class="score__value" id="score-x">0</span>
       </div>
       <div class="score score--draw">
@@ -61,7 +82,7 @@
       </div>
       <div class="score score--o" id="score-card-o">
         <span class="score__symbol">O</span>
-        <span class="score__label">Joueur O</span>
+        <span class="score__label" id="label-o">Joueur O</span>
         <span class="score__value" id="score-o">0</span>
       </div>
     </section>
