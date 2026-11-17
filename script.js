@@ -20,7 +20,8 @@ const PLAYER_O = "O";      // en mode ordinateur : l'ordinateur
 const CPU_DELAY = 550;     // temps de "réflexion" de l'ordinateur (ms)
 const STORAGE_KEY = "morpion-arena-scores-v2";
 
-const DIFFICULTY_LABELS = { easy: "Facile", medium: "Moyen", hard: "Difficile" };
+const DIFFICULTY_LABELS = { easy: "Facile", medium: "Moyen", hard: "Difficile", expert: "Expert" };
+const HARD_PERFECT_RATE = 0.75; // en Difficile : part des coups joués parfaitement
 
 /* ---------- État du jeu ---------- */
 
@@ -29,7 +30,7 @@ const state = {
   currentPlayer: PLAYER_X,    // joueur dont c'est le tour
   gameOver: false,            // true quand la partie est terminée
   mode: "pvp",                // "pvp" (2 joueurs) ou "cpu" (contre l'ordinateur)
-  difficulty: "medium",       // "easy", "medium" ou "hard"
+  difficulty: "medium",       // "easy", "medium", "hard" ou "expert"
   cpuTimer: null,             // coup de l'ordinateur en attente
   allScores: {},              // scores séparés par mode : { pvp: {...}, "cpu-hard": {...} }
 };
@@ -197,22 +198,31 @@ function bestMove(board) {
  * Choisit le coup de l'ordinateur selon la difficulté :
  * - Facile    : joue au hasard.
  * - Moyen     : gagne s'il peut, bloque s'il doit, sinon centre ou hasard.
- * - Difficile : minimax, imbattable (au mieux, match nul).
+ * - Difficile : coup parfait 3 fois sur 4, sinon coup "moyen" (battable).
+ * - Expert    : minimax à chaque coup, imbattable (au mieux, match nul).
  */
 function chooseCpuMove(board, difficulty) {
   const copy = board.slice();
-  if (difficulty === "easy") return randomItem(emptyCells(copy));
-
-  if (difficulty === "medium") {
-    const win = findWinningMove(copy, PLAYER_O);
-    if (win !== null) return win;
-    const block = findWinningMove(copy, PLAYER_X);
-    if (block !== null) return block;
-    if (copy[4] === null) return 4;
-    return randomItem(emptyCells(copy));
+  switch (difficulty) {
+    case "easy":
+      return randomItem(emptyCells(copy));
+    case "medium":
+      return mediumMove(copy);
+    case "hard":
+      return Math.random() < HARD_PERFECT_RATE ? bestMove(copy) : mediumMove(copy);
+    default: // "expert"
+      return bestMove(copy);
   }
+}
 
-  return bestMove(copy);
+/** Stratégie "moyenne" : gagner, sinon bloquer, sinon centre, sinon hasard. */
+function mediumMove(board) {
+  const win = findWinningMove(board, PLAYER_O);
+  if (win !== null) return win;
+  const block = findWinningMove(board, PLAYER_X);
+  if (block !== null) return block;
+  if (board[4] === null) return 4;
+  return randomItem(emptyCells(board));
 }
 
 /** Programme le coup de l'ordinateur après un court délai. */

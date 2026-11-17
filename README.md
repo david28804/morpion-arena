@@ -18,10 +18,11 @@ Ouvrez `index.html` dans un navigateur moderne (Chrome, Firefox, Edge, Safari). 
 Choisissez le mode sur la page d'accueil :
 
 - **2 joueurs** : deux personnes jouent à tour de rôle sur le même appareil.
-- **Contre l'ordinateur** : vous jouez X, l'ordinateur joue O. Trois niveaux :
+- **Contre l'ordinateur** : vous jouez X, l'ordinateur joue O. Quatre niveaux :
   - **Facile** : l'ordinateur joue au hasard.
   - **Moyen** : il gagne s'il le peut, vous bloque si vous allez gagner, sinon il prend le centre ou joue au hasard.
-  - **Difficile** : il calcule tous les coups possibles (algorithme minimax). Il ne perd jamais : au mieux, vous obtenez un match nul.
+  - **Difficile** : il joue le coup parfait environ 3 fois sur 4, sinon un coup « moyen ». Difficile, mais battable.
+  - **Expert** : il calcule tous les coups possibles à chaque tour (algorithme minimax). Il ne perd jamais : au mieux, vous obtenez un match nul.
 
 Chaque mode et chaque niveau a ses propres scores.
 
