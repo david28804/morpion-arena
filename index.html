@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Morpion Arena – un jeu de morpion moderne pour deux joueurs.">
+  <title>Morpion Arena</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Décor d'arrière-plan -->
+  <div class="bg-glow bg-glow--violet" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
+
+  <!-- ================= PAGE D'ACCUEIL ================= -->
+  <main id="home" class="screen screen--active" aria-labelledby="home-title">
+    <div class="logo" aria-hidden="true">
+      <span class="logo__x">X</span><span class="logo__o">O</span>
+    </div>
+    <h1 id="home-title" class="title">Morpion <span>Arena</span></h1>
+    <p class="subtitle">
+      Le grand classique du morpion, en version moderne.
+      Affrontez un ami sur le même appareil : le premier qui aligne trois symboles gagne !
+    </p>
+
+    <button id="btn-start" class="btn btn--primary btn--large" type="button">
+      Commencer à jouer
+    </button>
+
+    <section class="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">Règles du jeu</h2>
+      <ol>
+        <li>Le joueur <strong class="txt-x">X</strong> commence la partie.</li>
+        <li>Les joueurs jouent chacun leur tour.</li>
+        <li>Chaque joueur choisit une case libre.</li>
+        <li>Le premier qui aligne trois symboles identiques (ligne, colonne ou diagonale) gagne.</li>
+        <li>Si les neuf cases sont remplies sans alignement, la partie est nulle.</li>
+        <li>Une nouvelle partie conserve les scores.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- ================= ÉCRAN DE JEU ================= -->
+  <main id="game" class="screen" aria-labelledby="game-title">
+    <header class="game-header">
+      <h1 id="game-title" class="title title--small">Morpion <span>Arena</span></h1>
+    </header>
+
+    <!-- Tableau des scores -->
+    <section class="scoreboard" aria-label="Scores">
+      <div class="score score--x" id="score-card-x">
+        <span class="score__symbol">X</span>
+        <span class="score__label">Joueur X</span>
+        <span class="score__value" id="score-x">0</span>
+      </div>
+      <div class="score score--draw">
+        <span class="score__symbol">=</span>
+        <span class="score__label">Nuls</span>
+        <span class="score__value" id="score-draw">0</span>
+      </div>
+      <div class="score score--o" id="score-card-o">
+        <span class="score__symbol">O</span>
+        <span class="score__label">Joueur O</span>
+        <span class="score__value" id="score-o">0</span>
+      </div>
+    </section>
+
+    <!-- Message d'état (tour en cours, victoire, nul) -->
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <!-- Plateau 3 × 3 -->
+    <div id="board" class="board" role="grid" aria-label="Plateau de jeu">
+      <button class="cell" data-index="0" type="button" aria-label="Case 1"></button>
+      <button class="cell" data-index="1" type="button" aria-label="Case 2"></button>
+      <button class="cell" data-index="2" type="button" aria-label="Case 3"></button>
+      <button class="cell" data-index="3" type="button" aria-label="Case 4"></button>
+      <button class="cell" data-index="4" type="button" aria-label="Case 5"></button>
+      <button class="cell" data-index="5" type="button" aria-label="Case 6"></button>
+      <button class="cell" data-index="6" type="button" aria-label="Case 7"></button>
+      <button class="cell" data-index="7" type="button" aria-label="Case 8"></button>
+      <button class="cell" data-index="8" type="button" aria-label="Case 9"></button>
+    </div>
+
+    <!-- Commandes -->
+    <nav class="controls" aria-label="Commandes du jeu">
+      <button id="btn-new" class="btn btn--primary" type="button">Nouvelle partie</button>
+      <button id="btn-restart" class="btn" type="button">Recommencer</button>
+      <button id="btn-reset" class="btn" type="button">Réinitialiser les scores</button>
+      <button id="btn-home" class="btn btn--ghost" type="button">Retour à l'accueil</button>
+    </nav>
+  </main>
+
+  <!-- Fenêtre de fin de partie -->
+  <div id="result" class="modal" hidden>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="result-title">
+      <div id="result-symbol" class="modal__symbol"></div>
+      <h2 id="result-title" class="modal__title"></h2>
+      <div class="modal__actions">
+        <button id="btn-modal-new" class="btn btn--primary" type="button">Nouvelle partie</button>
+        <button id="btn-modal-close" class="btn btn--ghost" type="button">Voir le plateau</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
