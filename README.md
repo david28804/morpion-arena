@@ -41,6 +41,7 @@ Les scores sont aussi enregistrés dans le navigateur (`localStorage`) : ils res
 
 - `index.html` : structure (accueil, écran de jeu, fenêtre de résultat).
 - `style.css` : thème sombre, animations, adaptation mobile/tablette.
+- `logo.svg` / `logo-512.png` : logo du jeu (onglet, icône de téléphone) ; `og-image.png` : aperçu lors du partage du lien ; `site.webmanifest` : nom et icône quand on ajoute le jeu à l'écran d'accueil.
 - `script.js` :
   - `state` : plateau, joueur courant, fin de partie, scores ;
   - `WINNING_LINES` : les 8 alignements gagnants ;

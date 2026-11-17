@@ -1,0 +1,13 @@
+{
+  "name": "Morpion Arena",
+  "short_name": "Morpion",
+  "description": "Jeu de morpion moderne : à deux ou contre l'ordinateur.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#13111f",
+  "theme_color": "#13111f",
+  "icons": [
+    { "src": "logo-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "logo.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

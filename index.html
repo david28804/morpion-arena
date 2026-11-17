@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Morpion Arena – un jeu de morpion moderne pour deux joueurs.">
   <title>Morpion Arena</title>
+
+  <!-- Logo : onglet du navigateur, écran d'accueil du téléphone -->
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="icon" href="logo-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="logo-512.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#13111f">
+
+  <!-- Aperçu lors du partage du lien (Facebook, WhatsApp, X…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Morpion Arena">
+  <meta property="og:description" content="Le morpion en version moderne : à deux ou contre l'ordinateur, 4 niveaux de difficulté.">
+  <meta property="og:url" content="https://david28804.github.io/morpion-arena/">
+  <meta property="og:image" content="https://david28804.github.io/morpion-arena/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
@@ -18,9 +35,7 @@
 
   <!-- ================= PAGE D'ACCUEIL ================= -->
   <main id="home" class="screen screen--active" aria-labelledby="home-title">
-    <div class="logo" aria-hidden="true">
-      <span class="logo__x">X</span><span class="logo__o">O</span>
-    </div>
+    <img class="logo" src="logo.svg" alt="" width="104" height="104">
     <h1 id="home-title" class="title">Morpion <span>Arena</span></h1>
     <p class="subtitle">
       Le grand classique du morpion, en version moderne.
@@ -68,7 +83,10 @@
   <!-- ================= ÉCRAN DE JEU ================= -->
   <main id="game" class="screen" aria-labelledby="game-title">
     <header class="game-header">
-      <h1 id="game-title" class="title title--small">Morpion <span>Arena</span></h1>
+      <h1 id="game-title" class="title title--small">
+        <img class="logo-mini" src="logo.svg" alt="" width="36" height="36">
+        Morpion <span>Arena</span>
+      </h1>
       <p id="mode-badge" class="mode-badge"></p>
     </header>
 
