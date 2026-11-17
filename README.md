@@ -32,7 +32,7 @@ Chaque mode et chaque niveau a ses propres scores.
 |---|---|
 | Nouvelle partie | Vide le plateau, garde les scores |
 | Recommencer | Relance la manche en cours depuis zéro, garde les scores |
-| Réinitialiser les scores | Remet à 0 les scores du mode en cours (après confirmation) |
+| Réinitialiser les scores | Remet à 0 les scores du mode en cours |
 | Retour à l'accueil | Revient à la page d'accueil |
 
 Les scores sont aussi enregistrés dans le navigateur (`localStorage`) : ils restent après un rechargement de la page.

@@ -403,7 +403,6 @@ function newGame() {
 
 /** Remet à zéro les scores du mode en cours et relance une partie. */
 function resetScores() {
-  if (!confirm("Réinitialiser les scores de ce mode ?")) return;
   state.allScores[scoreKey()] = { X: 0, O: 0, draw: 0 };
   saveScores();
   renderScores();
