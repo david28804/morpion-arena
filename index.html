@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Morpion Arena – un jeu de morpion moderne pour deux joueurs.">
   <title>Morpion Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +28,7 @@
     </p>
 
     <!-- Choix du mode de jeu -->
-    <section class="setup" aria-label="Options de partie">
+    <section class="setup card" aria-label="Options de partie">
       <div class="setup__group" role="radiogroup" aria-labelledby="mode-label">
         <span id="mode-label" class="setup__label">Mode de jeu</span>
         <div class="segmented">
@@ -42,14 +45,14 @@
           <label><input type="radio" name="difficulty" value="expert"><span>Expert</span></label>
         </div>
       </div>
+
+      <button id="btn-start" class="btn btn--primary btn--large" type="button">
+        Commencer à jouer
+      </button>
     </section>
 
-    <button id="btn-start" class="btn btn--primary btn--large" type="button">
-      Commencer à jouer
-    </button>
-
-    <section class="rules" aria-labelledby="rules-title">
-      <h2 id="rules-title">Règles du jeu</h2>
+    <details class="rules card">
+      <summary>Règles du jeu</summary>
       <ol>
         <li>Le joueur <strong class="txt-x">X</strong> commence la partie.</li>
         <li>Les joueurs jouent chacun leur tour.</li>
@@ -59,7 +62,7 @@
         <li>Une nouvelle partie conserve les scores.</li>
         <li>Contre l'ordinateur, vous jouez <strong class="txt-x">X</strong> et l'ordinateur joue <strong class="txt-o">O</strong>.</li>
       </ol>
-    </section>
+    </details>
   </main>
 
   <!-- ================= ÉCRAN DE JEU ================= -->
